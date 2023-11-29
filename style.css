@@ -1,0 +1,42 @@
+body {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.result {
+  width: 100%;
+}
+
+.greenResult,
+.redResult {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.greenResult {
+  background-color: green;
+  color: white;
+}
+
+.redResult {
+  background-color: red;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+button {
+  background-color: #1cb7b4;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+}
