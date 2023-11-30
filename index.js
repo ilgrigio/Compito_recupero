@@ -120,11 +120,11 @@ const tasks = [
     completed: false,
   },
 ];
-
 // ESERCIZIO 1:
 
 // Usando JS, crea un elemento HTML per ognuna delle seguenti task:
-// L'elemento deve mostrare il testo della task ed avere un sfondo verde in caso sia completata, rosso se non lo e'.
+// L'elemento deve mostrare il testo della task ed avere un sfondo verde in caso sia
+// completata, rosso se non lo e'.
 
 // ESERCIZIO 2:
 
@@ -133,6 +133,8 @@ const tasks = [
 // ESERCIZIO 3:
 
 // Aggiungi un input che filtri le task in base alla proprieta' todo
+
+//? Esercizio 1:
 
 const divG = document.querySelector(".greenRs");
 const divR = document.querySelector(".redRs");
@@ -160,22 +162,51 @@ const hideGreen = function () {
 };
 button.addEventListener("click", hideGreen);
 
-// Filtrare ?
-const input = document.querySelector("input.text");
-const div = document.querySelector("main");
-let todoResult = [];
-const getValue = function (input) {
-  return input.value;
-};
+//? Filtrare
 
-const filterList = function () {
+//! Per ottenere il valore dell'input (1 modo)
+// const getValue = function (input) {
+//   return input.value;
+// };
+// const getTask = function () {
+//   const valInput = input.value;
+// };
+//! - Per ottenere il valore dell'input con l'Evento(2 modo)
+// const getTask = function (changeEvent) {
+//   return changeEvent.target.value;
+// };
+
+// Preparo la funzione Evento da richiamare
+const mostraTarget = function (keyupEvent) {
+  return keyupEvent.target.value;
+};
+//? Seleziono ul html
+const ul = document.querySelector("#tasksList");
+let noResult = "Nessun risultato!";
+
+const filterList = function (keyupEvent) {
+  ul.innerHTML = "";
+  // console.log(keyupEvent);
+
   for (let i = 0; i < tasks.length; i++) {
     if (
-      tasks[i].todo.toLocaleLowerCase().includes(getValue(input).toLowerCase())
+      tasks[i].todo
+        .toLowerCase()
+        .includes(mostraTarget(keyupEvent).toLowerCase())
     ) {
-      todoResult.push(tasks[i]);
-      div.innerHTML += `<ul><li>${tasks[i].todo}</li></ul>`;
+      ul.innerHTML += `<li>${tasks[i].todo}</li>`;
     }
+    // Se non ci sono risultati
+    // if (todoResult.length === 0) {
+    //   p.innerText = `${noResult}`;
+    // }
+    // inputText.value = "";
+  }
+  if (mostraTarget(keyupEvent).length === 0) {
+    ul.innerHTML = "";
   }
 };
-button.addEventListener("keyup", filterList);
+const inputText = document.querySelector(".inputTesto");
+inputText.addEventListener("keyup", filterList);
+// console.log(inputText);
+// inputText.onkeyup = filterList;
