@@ -154,24 +154,25 @@ for (let i = 0; i < tasks.length; i++) {
   }
 }
 // Nascondere Lista Completate
-const button = document.querySelector("button");
+//! Esercizio 2:
 
+const button = document.querySelector("button");
 const hideGreen = function () {
   let selectList = document.querySelector(".greenRs");
   selectList.classList.toggle("hide");
 };
 button.addEventListener("click", hideGreen);
 
+//! Esercizio 3:
 //? Filtrare
-
-//! Per ottenere il valore dell'input (1 modo)
+//? Per ottenere il valore dell'input (1 modo)
 // const getValue = function (input) {
 //   return input.value;
 // };
 // const getTask = function () {
 //   const valInput = input.value;
 // };
-//! - Per ottenere il valore dell'input con l'Evento(2 modo)
+//? - Per ottenere il valore dell'input con l'Evento(2 modo)
 // const getTask = function (changeEvent) {
 //   return changeEvent.target.value;
 // };
