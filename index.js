@@ -142,13 +142,13 @@ for (let i = 0; i < tasks.length; i++) {
   if (tasks[i].completed === true) {
     // let tasksGreen = tasks[i];
     // console.log(tasksGreen);
-    divG.innerHTML += `<ul><li>${tasks[i].todo}</li></ul>`;
+    divG.innerHTML += `<li>${tasks[i].todo}</li>`;
     // divG.style.color = "green";
     divG.classList.add("greenResult");
 
     // div.innerHTML = "";
   } else {
-    divR.innerHTML += `<ul><li>${tasks[i].todo}</li></ul>`;
+    divR.innerHTML += `<li>${tasks[i].todo}</li>`;
     // divR.style.color = "red";
     divR.classList.add("redResult");
   }
