@@ -120,7 +120,7 @@ const tasks = [
     completed: false,
   },
 ];
-// ESERCIZIO 1:
+//todo ESERCIZIO 1:
 
 // Usando JS, crea un elemento HTML per ognuna delle seguenti task:
 // L'elemento deve mostrare il testo della task ed avere un sfondo verde in caso sia
@@ -134,7 +134,7 @@ const tasks = [
 
 // Aggiungi un input che filtri le task in base alla proprieta' todo
 
-//? Esercizio 1:
+//! Esercizio 1:
 
 const divG = document.querySelector(".greenRs");
 const divR = document.querySelector(".redRs");
@@ -177,12 +177,13 @@ button.addEventListener("click", hideGreen);
 // };
 
 // Preparo la funzione Evento da richiamare
-const mostraTarget = function (keyupEvent) {
+const showTarget = function (keyupEvent) {
   return keyupEvent.target.value;
 };
-//? Seleziono ul html
+// Seleziono ul html
 const ul = document.querySelector("#tasksList");
-let noResult = "Nessun risultato!";
+let p = document.querySelector(".no__Result");
+// let noResult = "Riprova";
 
 const filterList = function (keyupEvent) {
   ul.innerHTML = "";
@@ -190,19 +191,16 @@ const filterList = function (keyupEvent) {
 
   for (let i = 0; i < tasks.length; i++) {
     if (
-      tasks[i].todo
-        .toLowerCase()
-        .includes(mostraTarget(keyupEvent).toLowerCase())
+      tasks[i].todo.toLowerCase().includes(showTarget(keyupEvent).toLowerCase())
     ) {
       ul.innerHTML += `<li>${tasks[i].todo}</li>`;
     }
     // Se non ci sono risultati
-    // if (todoResult.length === 0) {
-    //   p.innerText = `${noResult}`;
+    // else p.innerText = `${noResult}`;
     // }
     // inputText.value = "";
   }
-  if (mostraTarget(keyupEvent).length === 0) {
+  if (showTarget(keyupEvent).length === 0) {
     ul.innerHTML = "";
   }
 };
